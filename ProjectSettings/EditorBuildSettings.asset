@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: 56f6aa27cad31477ab509108ee9e6d2a
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: f2387a6487a4841caa990f85e63d43e0
+  - enabled: 1
+    path: Assets/Scenes/ZombieField.unity
+    guid: 873ee83a2a8164b73834e9f15b19053c
   m_configObjects: {}
