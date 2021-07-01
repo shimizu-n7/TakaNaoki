@@ -9,7 +9,7 @@ using UnityEngine.AI;
 
 public class WaitRotation : MonoBehaviour
 {
-    public Transform central;
+    Transform central;
 
     private NavMeshAgent agent;
     [SerializeField] float radius = 3;
@@ -22,6 +22,8 @@ public class WaitRotation : MonoBehaviour
 
     void Start()
     {
+        central = GameObject.Find("CentralPoint").GetComponent<Transform>(); 
+
         agent = GetComponent<NavMeshAgent>();
 
         anim = GetComponent<Animator>();
