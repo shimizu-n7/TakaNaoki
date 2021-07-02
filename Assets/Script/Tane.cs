@@ -22,6 +22,7 @@ public class Tane : MonoBehaviour
 
     private int todayDate = 0;
     private int lastDate;
+    private int loginPoint;
     private LOGIN_TYPE judge_type;
     void Start()
     {
@@ -33,7 +34,18 @@ public class Tane : MonoBehaviour
 
 
         DateTime now = DateTime.Now;//端末の現在時刻の取得        
-        todayDate = now.Year * 10000 + now.Month * 100 + now.Day;//日付を数値化　2020年9月1日だと20200901になる
+        if(now.Month == 1|now.Month == 3|now.Month == 5|now.Month == 7|now.Month == 8|now.Month == 10|now.Month == 12)
+        {
+            todayDate = now.Year*12*31*24*60 + now.Month*31*24*60 + now.Day*24*60 + now.Hour*60 + now.Minute;//日付を何分に変換
+        } 
+         else if(now.Month == 4|now.Month == 6|now.Month == 9|now.Month == 11)
+        {
+            todayDate = now.Year*12*30*24*60 + now.Month*30*24*60 + now.Day*24*60 + now.Hour*60 + now.Minute;
+        }
+        else
+        {
+            todayDate = now.Year*12*29*24*60 + now.Month*29*24*60 + now.Day*24*60 + now.Hour*60 + now.Minute;       
+        }
 
         //前回ログイン時の日付データをロード データがない場合はFIRST_USER_LOGINで0
         lastDate = PlayerPrefs.GetInt("LastGetDate", (int)LOGIN_TYPE.FIRST_USER_LOGIN);
@@ -64,11 +76,14 @@ public class Tane : MonoBehaviour
                 if (lastDate == (int)LOGIN_TYPE.FIRST_USER_LOGIN)
                 {
                     //初ログインボーナス処理
+                    Debug.Log("初回ログイン");
                 }
                 else
                 {
                     //普通のログインボーナス処理
-                    Debug.Log("取得時間");
+                    loginPoint = todayDate - lastDate;
+                    Debug.Log("経過時間"+ loginPoint);
+                    AddGrowPoint(loginPoint);
                 }               
 
                 break;
