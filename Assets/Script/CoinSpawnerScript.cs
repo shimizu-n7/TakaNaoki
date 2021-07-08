@@ -10,12 +10,15 @@ public class CoinSpawnerScript : MonoBehaviour
     int realzombieCount;
     int newInterval = 0;
     public GameObject coinPrefabs;
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
+        
         realzombieCount = zombieCount.zombieCount;
+        
     }
 
     // Update is called once per frame

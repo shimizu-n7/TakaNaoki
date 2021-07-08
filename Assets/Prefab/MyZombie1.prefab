@@ -1608,7 +1608,7 @@ GameObject:
   - component: {fileID: 7971663659438949025}
   m_Layer: 0
   m_Name: MyZombie1
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1712,7 +1712,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287f535e40c6140a384cb2970b900739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  central: {fileID: 0}
   radius: 3
   waitTime: 5
   time: 0
